@@ -4,52 +4,36 @@ import App from './App';
 import './App.css';
 
 class Task extends React.Component {
-    state = {
-        title: '',
-        description: '',
-    }
 
-          handleClick = event => {
-              this.setState({
-                title: this.props.titleFromParent,
-                description: this.props.descriptionFromParent,
-              })
-      }
+    render() {
+        const { title, description } = this.props;
 
-    render(){
         return (
-               <div
+            <div
                 className="master"
-               > 
+            >
+                <div
+                    className="app-result"
+                >
                     <div
-                    className = "app-result"
+                        className="result-title"
                     >
-                        <button
-                        type = "submit"
-                        className = "btn"
-                        onClick = {this.handleClick}
-                        >
-                        Submit
-                        </button>
-                        <div
-                        className = "result-title"
-                        >
-                            Title: 
-                            <br/>
-                            {this.state.title}
-                            
-                        </div>
-                        <div
-                        className = "result-description"
-                        >
-                            Description:
-                            <br/>
-                            {this.state.description}
-
-                        </div>
+                        Title:
+                            <br />
+                        {title}
 
                     </div>
-               </div> 
+                    <div
+                        className="result-description"
+                    >
+                        Description:
+                            <br />
+                        {description}
+
+                    </div>
+
+                </div>
+            </div>
         );
     }
 }
